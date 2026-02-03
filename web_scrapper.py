@@ -25,8 +25,9 @@ tbody = driver.find_element(By.XPATH, '//*[@id="block-paperclip-content"]/div/ar
 data = []
 # Iterate through all rows in the table body
 for tr in tbody.find_elements(By.XPATH, './/tr'):  # Use find_elements here to get all rows
-    row = [item.text for item in tr.find_elements(By.XPATH, '//table/tbody/tr[1]/td[3]')]
+    row = [item.text for item in tr.find_elements(By.XPATH, './td')]
     data.append(row)
 
 # TODO: Port this data to the front-end
-print(data)
+for row in data:
+    print(row[0], row[1], row[2], sep=' \t\t')
