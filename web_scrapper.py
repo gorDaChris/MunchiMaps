@@ -15,9 +15,9 @@ driver = webdriver.Chrome(options=chrome_options)
 driver.get('https://publicsafety.rpi.edu/campus-security/card-access-schedule')
 
 # Wait until the table is present on the page
-wait = WebDriverWait(driver, 10, ignored_exceptions=(NoSuchElementException))
+wait = WebDriverWait(driver, 5, ignored_exceptions=(NoSuchElementException))
 wait.until(
-    EC.presence_of_element_located((By.XPATH, '//*[@id="block-paperclip-content"]/div/article/div/div/div/div/div/table'))
+    EC.visibility_of_element_located((By.XPATH, '//*[@id="block-paperclip-content"]/div/article/div/div/div/div/div/table'))
 )
 
 # Find the tbody element
@@ -32,4 +32,5 @@ for tr in tbody.find_elements(By.XPATH, './/tr'):  # Use find_elements here to g
 
 # //table/tbody/tr[1]/td[3]
 
+# TODO: Port this data to the front-end
 print(data)
