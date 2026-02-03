@@ -8,11 +8,11 @@ import time
 
 # Initialize Chrome options
 chrome_options = Options()
-driver = webdriver.Chrome(options=chrome_options)
+chrome_options.add_argument("--headless=new")
+chrome_options.add_argument("--disable-gpu")
 
-# Open the website
+driver = webdriver.Chrome(options=chrome_options)
 driver.get('https://publicsafety.rpi.edu/campus-security/card-access-schedule')
-print("Website opened")
 
 # Wait until the table is present on the page
 wait = WebDriverWait(driver, 10, ignored_exceptions=(NoSuchElementException))
