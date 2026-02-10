@@ -184,6 +184,7 @@ class icon extends EventEmitter {
           <div class="review-section">
             <div class="rating_block">
               <form class="submit-review">
+                <input type="text" id="review-author" placeholder="Your name here..." maxlength="50">
                 <textarea id="review-text" placeholder="Write your review here..." required></textarea>
                 <div class="rating-row">
                   <div class="rating">
@@ -276,7 +277,9 @@ class icon extends EventEmitter {
             event.preventDefault(); // Stops page from refreshing on submit
             event.stopPropagation();
             const reviewTextEl = document.getElementById('review-text');
+            const reviewAuthorEl = document.getElementById('review-author');
             const reviewText = reviewTextEl.value.trim();
+            const authorName = reviewAuthorEl.value.trim();
             const rating = parseInt(document.getElementById('selected-rating').value);
 
             if (!reviewText) {
@@ -321,7 +324,7 @@ class icon extends EventEmitter {
               return;
             }
 
-            this.reviews.push({ text: reviewText, rating: rating });
+            this.reviews.push({ text: reviewText, rating: rating, author: authorName || 'Anonymous' });
             // Save reviews to localStorage
             localStorage.setItem(`reviews_${this.name}`, JSON.stringify(this.reviews));
 

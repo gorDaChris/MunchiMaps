@@ -535,6 +535,12 @@ to {
   transform: scaleX(-1) scale(1.2);
 }
 
+#review-author {
+  font-weight: bold;
+  padding-left: 5px;
+  margin-bottom: 5px;
+}
+
 
 #popup-search {
     position: fixed;
