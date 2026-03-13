@@ -521,40 +521,20 @@ html, body {
 
 #popup-search {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    z-index: 1000;
-    width: 465px; 
-    height: 500px;
-    border-radius: 20px; /* Curved corners */
-    font-family: 'Courier New';
-    font-weight: bold;
+    inset: 0;
+    display: none;
+    z-index: 5000;
+    background: rgba(0,0,0,0.35);
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Fade-in/Fade-out transition */
-}
-
-/* Small screens (e.g., mobile) */
-@media screen and (max-width: 600px) {
-  #popup-search {
-    width: 344px;
-    height: 470px;
-  }
-}
-
-/* Medium screens (e.g., tablets) */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-  #popup-search {
-    width: 545px;
-    height: 565px;
-  }
+    transition: opacity 0.3s ease;
+    transform: none;
 }
 
 #popup-search.show {
+    display: grid;
+    place-items: center;
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    border-radius: 20px; /* Curved corners */
+    transform: none;
 }
 
 #popup-search .popup-close {
@@ -565,37 +545,37 @@ html, body {
     font-size: 24px;
     font-weight: bold;
     color: #333;
-    border-radius: 20px; /* Curved corners */
+    border-radius: 20px;
 }
 
   
 /*search bar*/
 .search-bar {
-    position: fixed;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     background-color: #fff;
-    z-index: 1000;
-    width: 465px; 
-    height: 500px; 
-    font-family: 'Courier New'; 
+    width: min(92vw, 465px);
+    max-height: 85vh;
+    font-family: 'Courier New';
     font-weight: bold;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    overflow: auto;
 }
 
 /* Small screens (e.g., mobile) */
 @media screen and (max-width: 600px) {
   .search-bar {
-    width: 331px;
-    height: 437px;
+    width: min(92vw, 331px);
+    max-height: 80vh;
   }
 }
 
 /* Medium screens (e.g., tablets) */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
   .search-bar {
-    width: 520px;
-    height: 525px;
+    width: min(92vw, 520px);
+    max-height: 80vh;
   }
 }
 
