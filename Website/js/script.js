@@ -554,6 +554,7 @@ if (mapKeyButton) {
   });
 } // End initMap function
 
+// Resolves friendly popup names to HTML IDs so openPopup/closePopup can be called consistently.
 function resolvePopupId(name) {
   const lower = name.toLowerCase();
   if (lower === 'report') return 'popup-report';
@@ -563,11 +564,13 @@ function resolvePopupId(name) {
   return name;
 }
 
+// Open the help modal; this closes other popups first.
 function openHelp() {
   closeAllPopups('report');
   openPopup('help');
 }
 
+// Close the help modal safely.
 function closeHelp() {
   closePopup('help');
 }
@@ -638,6 +641,7 @@ window.onclick = function(event) {
   });
 };
 
+// Show a popup overlay by ID (friendly ID resolved to real ID). Also hides all other popups first.
 function openPopup(id) {
   closeAllPopups(id);
   const popup = document.getElementById(resolvePopupId(id));
@@ -647,6 +651,7 @@ function openPopup(id) {
   }
 }
 
+// Hide a specific popup overlay by friendly name.
 function closePopup(id) {
   const popup = document.getElementById(resolvePopupId(id));
   if (popup) {
@@ -655,7 +660,7 @@ function closePopup(id) {
   }
 }
 
-// Closes all popups when user clicks on second popup.
+// Hide all known popups (safe no-op if missing).
 function closeAllPopups(id) {
   ['map-key-popup', 'help-popup', 'popup-search', 'popup-report'].forEach((popupId) => {
     const popup = document.getElementById(popupId);

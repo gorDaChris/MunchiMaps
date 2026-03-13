@@ -667,7 +667,6 @@ to {
   text-decoration: underline;
 }
 
-/*report button*/
 .popup-report-container {
   display: none;
   position: fixed;
@@ -677,6 +676,7 @@ to {
   animation: fadeIn 0.25s ease-out;
 }
 
+/*  .show class is used in JS to display the popup in a centered grid. */
 .popup-report-container.show {
   display: grid;
   place-items: center;
