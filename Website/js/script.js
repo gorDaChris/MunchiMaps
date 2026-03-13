@@ -554,29 +554,31 @@ if (mapKeyButton) {
   });
 } // End initMap function
 
+function resolvePopupId(name) {
+  const lower = name.toLowerCase();
+  if (lower === 'report') return 'popup-report';
+  if (lower === 'search') return 'popup-search';
+  if (lower === 'help') return 'help-popup';
+  if (lower === 'mapkey' || lower === 'map-key') return 'map-key-popup';
+  return name;
+}
+
 function openHelp() {
-  closeAllPopups('Report');
-  document.getElementById("help-popup").style.display = "block";
+  closeAllPopups('report');
+  openPopup('help');
 }
 
 function closeHelp() {
-  document.getElementById("help-popup").style.display = "none";
-}
-
-// Close the help popup if the user clicks outside of the help content
-window.onclick = function(event) {
-  const popup = document.getElementById("help-popup");
-  if (event.target === popup) {
-    popup.style.display = "none";
-  }
+  closePopup('help');
 }
 
 function openMapKey(){
-  closeAllPopups('Report');
-  document.getElementById("map-key-popup").style.display = "block";
+  closeAllPopups('report');
+  openPopup('mapkey');
 }
+
 function closeMapKey(){
-    document.getElementById("map-key-popup").style.display = "none";
+  closePopup('mapkey');
 }
 
 
@@ -626,27 +628,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 window.onclick = function(event) {
-  const popup = document.getElementById("mapKeyPopup");
-  if (event.target === popup) {
-    popup.style.display = "none";
-  }
-}
+  const popupIds = ['map-key-popup', 'help-popup', 'popup-report', 'popup-search'];
+  popupIds.forEach((id) => {
+    const popup = document.getElementById(id);
+    if (popup && event.target === popup) {
+      popup.style.display = 'none';
+      popup.classList.remove('show');
+    }
+  });
+};
 
 function openPopup(id) {
   closeAllPopups(id);
-  document.getElementById('popup-' + id.toLowerCase()).style.display = 'block';
+  const popup = document.getElementById(resolvePopupId(id));
+  if (popup) {
+    popup.style.display = 'block';
+    popup.classList.add('show');
+  }
 }
 
 function closePopup(id) {
-  document.getElementById('popup-' + id.toLowerCase()).style.display = 'none';
+  const popup = document.getElementById(resolvePopupId(id));
+  if (popup) {
+    popup.style.display = 'none';
+    popup.classList.remove('show');
+  }
 }
 
 // Closes all popups when user clicks on second popup.
 function closeAllPopups(id) {
-    document.getElementById("map-key-popup").style.display = "none";
-    document.getElementById("help-popup").style.display = "none";
-    document.getElementById("popup-search").style.display = "none";
-    document.getElementById('popup-' + id.toLowerCase()).style.display = 'none';
+  ['map-key-popup', 'help-popup', 'popup-search', 'popup-report'].forEach((popupId) => {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+      popup.style.display = 'none';
+      popup.classList.remove('show');
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function () {

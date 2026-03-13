@@ -668,6 +668,20 @@ to {
 }
 
 /*report button*/
+.popup-report-container {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.popup-report-container.show {
+  display: grid;
+  place-items: center;
+}
+
 .popup-container {
 display: none;
 position: fixed;
