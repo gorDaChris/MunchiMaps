@@ -131,7 +131,7 @@ background: #000
 }
 
 .help-button-img {
-  height: 30px; /* Adjust the height of the image */
+  height: 40px; /* Adjust the height of the image */
   width: auto; /* Maintain the aspect ratio */
   background-color: #000000d1;
   border-radius: 50px;
@@ -224,10 +224,11 @@ margin-right: 10px;
 }
   
 .map-key-button-img {
-  height: 30px; /* Adjust image height */
+  height: 40px; /* Adjust image height */
   width: auto; /* Maintain aspect ratio */
   background-color: #FFFFFF;
   border-radius: 50px;
+  filter: brightness(80%);
 }
 
 /* Medium screens (e.g., tablets) */

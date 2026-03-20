@@ -117,7 +117,7 @@ html, body {
 }
 
 .help-button-img {
-    height: 30px; /* Adjust the height of the image */
+    height: 40px; /* Adjust the height of the image */
     width: auto; /* Maintain the aspect ratio */
     background-color: #FFFFFF;
     border-radius: 50px;
@@ -221,7 +221,7 @@ html, body {
 }
 
 .map-key-button-img {
-  height: 30px; /* Adjust image height */
+  height: 40px; /* Adjust image height */
   width: auto; /* Maintain aspect ratio */
   background-color: #FFFFFF;
   border-radius: 50px;
