@@ -23,6 +23,58 @@ const MAP_ICONS = {
     DRINK: `${ICONS_PATH}/Drink.png?raw=true`
 };
 
+const BUILDING_HOURS_URL = 'data/building-hours.json';
+
+function normalizeBuildingName(name) {
+  return String(name || '')
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^\w\s]/g, '')
+    .replace(/\s+/g, ' ');
+}
+
+function formatHourValue(hourValue) {
+  if (hourValue === null || hourValue === undefined || Number.isNaN(Number(hourValue))) {
+    return null;
+  }
+
+  const totalMinutes = Math.round(Number(hourValue) * 60);
+  const minutesInDay = 24 * 60;
+  const normalized = ((totalMinutes % minutesInDay) + minutesInDay) % minutesInDay;
+  const hours = Math.floor(normalized / 60);
+  const minutes = normalized % 60;
+  const suffix = hours >= 12 ? 'PM' : 'AM';
+  const hour12 = hours % 12 || 12;
+
+  return `${hour12}:${String(minutes).padStart(2, '0')} ${suffix}`;
+}
+
+async function loadHoursSnapshot() {
+  try {
+    const response = await fetch(BUILDING_HOURS_URL, { cache: 'no-store' });
+    if (!response.ok) {
+      return;
+    }
+
+    const snapshot = await response.json();
+    const buildingIndex = new Map(
+      buildings.map((building) => [normalizeBuildingName(building.name), building])
+    );
+
+    Object.entries(snapshot).forEach(([name, hours]) => {
+      const building = buildingIndex.get(normalizeBuildingName(name));
+      if (!building || !hours) {
+        return;
+      }
+
+      building.updateHours(hours);
+    });
+  } catch (error) {
+    console.warn('Unable to load building hours snapshot:', error);
+  }
+}
+
 class EventEmitter {
   constructor() {
     this.events = {};
@@ -125,6 +177,35 @@ class icon extends EventEmitter {
     this.images = setImages(this.name, this.num_snack_machines, this.num_drink_machines);
   }
 
+  updateHours(hours) {
+    if (typeof hours.open === 'number') {
+      this.time_opens = hours.open;
+    }
+    if (typeof hours.close === 'number') {
+      this.time_closes = hours.close;
+    }
+    if (typeof hours.display === 'string' && hours.display.trim()) {
+      this.hours_display = hours.display.trim();
+    } else {
+      this.hours_display = null;
+    }
+  }
+
+  getHoursDisplay() {
+    if (this.hours_display) {
+      return this.hours_display;
+    }
+
+    const opensAt = formatHourValue(this.time_opens);
+    const closesAt = formatHourValue(this.time_closes);
+
+    if (!opensAt || !closesAt) {
+      return 'Hours unavailable';
+    }
+
+    return `${opensAt} - ${closesAt}`;
+  }
+
   getReviewsHTML() { // Display existing reviews
     if (this.reviews.length === 0) {
       return "<div>No reviews yet.</div>";
@@ -181,6 +262,7 @@ class icon extends EventEmitter {
               <img src="${this.image3}" alt="Image 3">
           </div>
           <div class="info-window-subtitle">${this.description}</div>
+          <div class="info-window-hours">Open daily: ${this.getHoursDisplay()}</div>
           <div class="review-section">
             <div class="rating_block">
               <form class="submit-review">
@@ -421,7 +503,7 @@ const buildings = [
 ];
 
  // Initializes the map
-function initMap() {
+async function initMap() {
   map = L.map('map').setView([42.72941085967446, -73.6792590320996], 17);
 
 
@@ -518,6 +600,8 @@ if (mapKeyButton) {
   // Test area ------------------------------------------- 
 
   options = [foodanddrink, food, drink];
+
+  await loadHoursSnapshot();
   
   // Plot the icons for the buildings on the map
   for(let i=0; i<buildings.length; i++) {
@@ -678,13 +762,13 @@ function closeAllPopups(id) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  initMap();
-});
-// Handle report form submission
-document.addEventListener('DOMContentLoaded', function () {
     initMap();
 
     const reportForm = document.getElementById('reportForm');
+    if (!reportForm) {
+      return;
+    }
+
     reportForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const reportTitle = document.getElementById('reportTitle').value;

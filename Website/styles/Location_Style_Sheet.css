@@ -113,3 +113,10 @@
 .rating span.selected img {
     transform: scale(1.08);
 }
+
+.info-window-hours {
+    margin-top: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    font-weight: bold;
+}

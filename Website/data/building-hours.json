@@ -1,0 +1,97 @@
+{
+  "Academy Hall": {
+    "open": 8,
+    "close": 18,
+    "display": "8:00 AM - 6:00 PM"
+  },
+  "Amos Eaton Hall": {
+    "open": 7,
+    "close": 22,
+    "display": "7:00 AM - 10:00 PM"
+  },
+  "Davison Hall": {
+    "open": 0,
+    "close": 24,
+    "display": "12:00 AM - 12:00 AM"
+  },
+  "DCC": {
+    "open": 7,
+    "close": 21,
+    "display": "7:00 AM - 9:00 PM"
+  },
+  "Folsom Library": {
+    "open": 8,
+    "close": 24,
+    "display": "8:00 AM - 12:00 AM"
+  },
+  "Greene Building": {
+    "open": 7,
+    "close": 21,
+    "display": "7:00 AM - 9:00 PM"
+  },
+  "JEC": {
+    "open": 6,
+    "close": 22,
+    "display": "6:00 AM - 10:00 PM"
+  },
+  "JROWL": {
+    "open": 6,
+    "close": 22,
+    "display": "6:00 AM - 10:00 PM"
+  },
+  "Mueller Center": {
+    "open": 8,
+    "close": 23,
+    "display": "8:00 AM - 11:00 PM"
+  },
+  "North Hall": {
+    "open": 7,
+    "close": 24,
+    "display": "7:00 AM - 12:00 AM"
+  },
+  "Pittsburgh Building": {
+    "open": 7,
+    "close": 21,
+    "display": "7:00 AM - 9:00 PM"
+  },
+  "Pub Safe": {
+    "open": 0,
+    "close": 24,
+    "display": "12:00 AM - 12:00 AM"
+  },
+  "Quad": {
+    "open": 0,
+    "close": 24,
+    "display": "12:00 AM - 12:00 AM"
+  },
+  "Sage Labs": {
+    "open": 7,
+    "close": 24,
+    "display": "7:00 AM - 12:00 AM"
+  },
+  "Sharp Hall": {
+    "open": 0,
+    "close": 24,
+    "display": "12:00 AM - 12:00 AM"
+  },
+  "Union": {
+    "open": 7,
+    "close": 24,
+    "display": "7:00 AM - 12:00 AM"
+  },
+  "Voorhees Computing Center": {
+    "open": 7,
+    "close": 23,
+    "display": "7:00 AM - 11:00 PM"
+  },
+  "Warren Hall": {
+    "open": 7,
+    "close": 21,
+    "display": "7:00 AM - 9:00 PM"
+  },
+  "West Hall": {
+    "open": 0,
+    "close": 24,
+    "display": "12:00 AM - 12:00 AM"
+  }
+}
