@@ -33,3 +33,54 @@
   font-size: 12px;
   font-weight: bold;
 }
+
+/* Shared popup layout so light and dark mode only differ by color, not structure. */
+.help-popup,
+.map-key-popup,
+.popup-report-container,
+#popup-search {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    z-index: 5000;
+}
+
+.help-popup.show,
+.map-key-popup.show,
+.popup-report-container.show,
+#popup-search.show {
+    display: grid;
+}
+
+.help-content,
+.map-key-content,
+.popup,
+.search-bar {
+    margin: 0;
+    max-width: min(92vw, 600px);
+    max-height: 85vh;
+    overflow: auto;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.popup,
+.search-bar {
+    position: relative;
+}
+
+.popup {
+    width: min(92vw, 500px);
+}
+
+.search-bar {
+    width: min(92vw, 465px);
+    transform: none !important;
+    height: auto;
+}
+
+.logo-title {
+    z-index: 100 !important;
+    pointer-events: none;
+}

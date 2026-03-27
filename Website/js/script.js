@@ -525,22 +525,28 @@ if (mapKeyButton) {
   }
 
   // Toggle between dark mode and light mode CSS sheets.
-  let darkMode = false;
-  function toggleDarkMode() {
-    darkMode = !darkMode;
+  function applyTheme(isDark) {
     const light = document.getElementById('light-mode');
     const dark = document.getElementById('dark-mode');
-    if (darkMode){
+    if (!light || !dark) {
+      return;
+    }
+
+    if (isDark) {
       dark.disabled = false;
-      setTimeout(() => {
-        light.disabled = true;
-      }, 200); //Delay for smooth transition
+      light.disabled = true;
     } else {
       light.disabled = false;
-      setTimeout(() => {
-        dark.disabled = true;
-      }, 200);
+      dark.disabled = true;
     }
+  }
+
+  let darkMode = false;
+  applyTheme(darkMode);
+
+  function toggleDarkMode() {
+    darkMode = !darkMode;
+    applyTheme(darkMode);
   }
 
   // Toggles dark mode when user presses 'd' or 'D.'
