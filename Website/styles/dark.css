@@ -881,6 +881,33 @@ background-color: #0056b3;
   color: #f3f4f6;
 }
 
+.review,
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.review-author,
+.review-text,
+.review-section,
+.info-window-title,
+.info-window-subtitle {
+  color: #f3f4f6;
+}
+
+#review-author,
+.submit-review textarea {
+  background: #111827;
+  color: #f3f4f6;
+  border: 1px solid #4b5563;
+}
+
+#review-author::placeholder,
+.submit-review textarea::placeholder {
+  color: #9ca3af;
+}
+
 .result,
 .result ul,
 .result ul li a {

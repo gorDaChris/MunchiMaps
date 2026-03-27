@@ -84,3 +84,32 @@
     z-index: 100 !important;
     pointer-events: none;
 }
+
+/* Shared rating interactions for the vending machine popup. */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+}
+
+.rating span {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.rating span img {
+    display: block;
+    filter: brightness(0.4);
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.rating span:hover img,
+.rating span:hover ~ span img,
+.rating span.selected img {
+    filter: brightness(1);
+}
+
+.rating span:hover img,
+.rating span.selected img {
+    transform: scale(1.08);
+}
