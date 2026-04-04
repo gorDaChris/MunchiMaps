@@ -190,7 +190,7 @@ html, body {
 .map-key-button {
   position: absolute;
   top: 5px;
-  right: 80px; /* Adjusted position to avoid overlap with help button */
+  right: 50px; /* Keep close to help button without overlap */
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.0); /* Transparent background */
   border: none;
@@ -201,14 +201,14 @@ html, body {
 /* Small screens (e.g., mobile) */
 @media screen and (max-width: 600px) {
   .map-key-button {
-    right: 45px;
+    right: 50px;
   }
 }
 
 /* Medium screens (e.g., tablets) */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
   .map-key-button {
-    right: 89px;
+    right: 54px;
   }
 }
 

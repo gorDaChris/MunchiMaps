@@ -693,18 +693,12 @@ function showInfoHelper(id){
 function openSearch() {
     closeAllPopups('Report');
     const searchPopup = document.getElementById("popup-search");
-    searchPopup.style.display = "block";
-    setTimeout(() => {
-        searchPopup.classList.add("show");
-    }, 10); // Slight delay to trigger the CSS transition
+    searchPopup.classList.add("show");
 }
 
 function closeSearch() {
     const searchPopup = document.getElementById("popup-search");
     searchPopup.classList.remove("show");
-    setTimeout(() => {
-        searchPopup.style.display = "none";
-    }, 500); // Match the delay to the transition duration
 }
 
 // document.addEventListener('DOMContentLoaded', function() {
@@ -725,7 +719,6 @@ window.onclick = function(event) {
   popupIds.forEach((id) => {
     const popup = document.getElementById(id);
     if (popup && event.target === popup) {
-      popup.style.display = 'none';
       popup.classList.remove('show');
     }
   });
@@ -736,7 +729,6 @@ function openPopup(id) {
   closeAllPopups(id);
   const popup = document.getElementById(resolvePopupId(id));
   if (popup) {
-    popup.style.display = 'block';
     popup.classList.add('show');
   }
 }
@@ -745,7 +737,6 @@ function openPopup(id) {
 function closePopup(id) {
   const popup = document.getElementById(resolvePopupId(id));
   if (popup) {
-    popup.style.display = 'none';
     popup.classList.remove('show');
   }
 }
@@ -755,7 +746,6 @@ function closeAllPopups(id) {
   ['map-key-popup', 'help-popup', 'popup-search', 'popup-report'].forEach((popupId) => {
     const popup = document.getElementById(popupId);
     if (popup) {
-      popup.style.display = 'none';
       popup.classList.remove('show');
     }
   });
