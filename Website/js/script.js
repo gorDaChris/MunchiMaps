@@ -681,24 +681,24 @@ function showInfoHelper(id){
   console.log('Toggling icon:', icon);
   console.log('Coordinates:', icon.x_coord, icon.y_coord);
 
+    icon.updateInfoWindowContent();
     icon.infoWindow = L.popup({ maxWidth: 500 })
       .setLatLng([icon.x_coord, icon.y_coord])
       .setContent(icon.infoWindowContent)
       .openOn(map);  
+
+  map.setView([icon.x_coord, icon.y_coord], 18);
 
   closeSearch();
 }
 
 
 function openSearch() {
-    closeAllPopups('Report');
-    const searchPopup = document.getElementById("popup-search");
-    searchPopup.classList.add("show");
+    openPopup('search');
 }
 
 function closeSearch() {
-    const searchPopup = document.getElementById("popup-search");
-    searchPopup.classList.remove("show");
+    closePopup('search');
 }
 
 // document.addEventListener('DOMContentLoaded', function() {
