@@ -234,9 +234,18 @@
           console.log(buildings);
         
 
+          function renderSearchMessage(message) {
+              var resultContainer = document.getElementById('searchResult');
+              resultContainer.textContent = message;
+          }
+
           //Search function 
           function search(){
               var searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+              if (!searchTerm) {
+                  renderSearchMessage('Start typing to search buildings');
+                  return;
+              }
               var filtered = [];
   
               buildings.forEach(function(building){
@@ -289,6 +298,7 @@
           }
   
           document.getElementById('searchInput').addEventListener('input', search);
+          renderSearchMessage('Start typing to search buildings');
         </script>
        
     </div>
