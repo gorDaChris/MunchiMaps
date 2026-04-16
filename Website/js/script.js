@@ -269,16 +269,16 @@ class icon extends EventEmitter {
                 <input type="text" id="review-author" placeholder="Your name here..." maxlength="50">
                 <textarea id="review-text" placeholder="Write your review here..." required></textarea>
                 <div class="rating-row">
-                  <div class="rating">
+                  <div class="rating" aria-label="Cookie rating">
                     <span rating-star="5"><img src="${ASSETS_BASE_URL}/CookieFavicon.png?raw=true" alt="Star 5" width="30" height="30"></span>
                     <span rating-star="4"><img src="${ASSETS_BASE_URL}/CookieFavicon.png?raw=true" alt="Star 4" width="30" height="30"></span>
                     <span rating-star="3"><img src="${ASSETS_BASE_URL}/CookieFavicon.png?raw=true" alt="Star 3" width="30" height="30"></span>
                     <span rating-star="2"><img src="${ASSETS_BASE_URL}/CookieFavicon.png?raw=true" alt="Star 2" width="30" height="30"></span>
                     <span rating-star="1"><img src="${ASSETS_BASE_URL}/CookieFavicon.png?raw=true" alt="Star 1" width="30" height="30"></span>
                   </div>
-                  <input type="hidden" id="selected-rating" value="0">
-                  <button type="submit">SUBMIT</button>
+                  <button type="submit" class="review-submit-btn">Submit</button>
                 </div>
+                <input type="hidden" id="selected-rating" value="0">
               </form>
             </div>
             <div class="reviews">
