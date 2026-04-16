@@ -208,7 +208,7 @@ class icon extends EventEmitter {
 
   getReviewsHTML() { // Display existing reviews
     if (this.reviews.length === 0) {
-      return "<div>No reviews yet.</div>";
+      return "<div class=\"no-reviews\">No reviews yet.</div>";
     }
     const cookieImg = `<img src="${ASSETS_BASE_URL}/CookieFavicon.png?raw=true" alt="cookie" width="20" height="20">`;
     return this.reviews.map((r, index) => {

@@ -922,3 +922,10 @@ background-color: #0056b3;
 .result ul li:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
 }
+
+:root {
+  --review-divider: rgba(107, 114, 128, 0.75);
+  --review-card-border: rgba(107, 114, 128, 0.6);
+  --review-form-surface: rgba(17, 24, 39, 0.78);
+  --popup-meta-pill-bg: rgba(55, 65, 81, 0.55);
+}
