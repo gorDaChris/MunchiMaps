@@ -928,4 +928,13 @@ background-color: #0056b3;
   --review-card-border: rgba(107, 114, 128, 0.6);
   --review-form-surface: rgba(17, 24, 39, 0.78);
   --popup-meta-pill-bg: rgba(55, 65, 81, 0.55);
+  --report-surface: #1f2937;
+  --report-text: #f3f4f6;
+  --report-muted: #cbd5e1;
+  --report-border: rgba(100, 116, 139, 0.55);
+  --report-input-bg: #111827;
+  --report-input-border: #4b5563;
+  --report-input-focus: #60a5fa;
+  --report-submit-bg: #2563eb;
+  --report-submit-hover: #1d4ed8;
 }

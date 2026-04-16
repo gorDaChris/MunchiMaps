@@ -85,6 +85,134 @@
     pointer-events: none;
 }
 
+:root {
+    --report-surface: #ffffff;
+    --report-text: #111827;
+    --report-muted: #4b5563;
+    --report-border: rgba(148, 163, 184, 0.38);
+    --report-input-bg: #f8fafc;
+    --report-input-border: #cbd5e1;
+    --report-input-focus: #3b82f6;
+    --report-submit-bg: #2563eb;
+    --report-submit-hover: #1d4ed8;
+}
+
+#popup-report .report-popup-card {
+    width: min(92vw, 540px);
+    max-height: 85vh;
+    margin: 0;
+    padding: 22px;
+    border-radius: 16px;
+    background: var(--report-surface);
+    color: var(--report-text);
+    border: 1px solid var(--report-border);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.24);
+    overflow: auto;
+}
+
+#popup-report .popup-header {
+    margin-bottom: 8px;
+}
+
+#popup-report .popup-header h2 {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.35rem;
+    letter-spacing: 0.2px;
+    color: var(--report-text);
+}
+
+#popup-report .popup-subtitle {
+    margin: 0 0 14px;
+    color: var(--report-muted);
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+#popup-report .popup-close {
+    left: auto;
+    right: 14px;
+    top: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--report-muted);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#popup-report .popup-close:hover {
+    background: rgba(100, 116, 139, 0.16);
+    color: var(--report-text);
+}
+
+#popup-report .report-popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#popup-report .report-popup-form .form-group {
+    margin: 0;
+}
+
+#popup-report .report-popup-form label {
+    margin-bottom: 6px;
+    font-size: 0.84rem;
+    letter-spacing: 0.35px;
+    text-transform: uppercase;
+    color: var(--report-muted);
+}
+
+#popup-report .report-popup-form .form-control {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--report-input-border);
+    background: var(--report-input-bg);
+    color: var(--report-text);
+    font-family: 'Courier New', Courier, monospace;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#popup-report #reportDescription {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#popup-report .report-popup-form .form-control:focus {
+    outline: none;
+    border-color: var(--report-input-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+#popup-report .report-popup-form .btn-submit {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 14px;
+    margin-top: 2px;
+    background: var(--report-submit-bg);
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#popup-report .report-popup-form .btn-submit:hover {
+    background: var(--report-submit-hover);
+}
+
+#popup-report .report-popup-form .btn-submit:active {
+    transform: translateY(1px);
+}
+
 .leaflet-popup-content {
     margin: 14px 16px;
 }
