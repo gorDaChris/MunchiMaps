@@ -352,7 +352,24 @@
 }
 
 .review-header {
+    display: flex;
+    align-items: center;
     gap: 10px;
+}
+
+.review-rating {
+    display: inline-flex;
+    align-items: center;
+}
+
+.review-rating img {
+    width: 20px;
+    height: 20px;
+    margin: 0 2px 0 0;
+}
+
+.review-edit-btn {
+    transform: scaleX(-1);
 }
 
 .review-text {

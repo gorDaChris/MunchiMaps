@@ -529,6 +529,7 @@ to {
   margin-right: 2px;
   line-height: 1;
   transition: color 0.2s ease;
+  transform: scaleX(-1);
 }
 
 .review-edit-btn:hover {
