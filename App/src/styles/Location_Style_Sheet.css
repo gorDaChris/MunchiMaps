@@ -44,3 +44,50 @@ body * {
   font-size: 12px;
   font-weight: bold;
 }
+
+#popup-report .popup-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+#popup-report .report-popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#popup-report .report-popup-layout {
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) minmax(250px, 1.5fr);
+  gap: 12px 14px;
+  align-items: start;
+}
+
+#popup-report .report-left-column {
+  display: grid;
+  gap: 12px;
+}
+
+#popup-report .report-description-group {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#popup-report #reportDescription {
+  min-height: 152px;
+  height: 100%;
+  resize: vertical;
+}
+
+@media screen and (max-width: 700px) {
+  #popup-report .report-popup-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #popup-report #reportDescription {
+    min-height: 120px;
+  }
+}

@@ -106,37 +106,42 @@ function App() {
       </div>
 
       <div id="popup-report" className="popup-container">
-        <div className="popup">
+        <div className="popup report-popup-card">
           <div className="popup-header">
+            <h2>Report Issue</h2>
             <span className="popup-close" onClick={closeAllPopups}>
               &times;
             </span>
-            <h2>Report Issue</h2>
           </div>
+          <p className="popup-subtitle">Help us improve MunchiMaps by sharing what went wrong.</p>
           <form
             id="reportForm"
-            className="popup-form"
+            className="popup-form report-popup-form"
             onSubmit={(e) => {
               e.preventDefault();
               console.log('Submit Report');
             }}
           >
-            <div className="form-group">
-              <label htmlFor="reportTitle">Title:</label>
-              <input type="text" id="reportTitle" className="form-control" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="reportType">Type of Issue:</label>
-              <select id="reportType" className="form-control" required>
-                <option value="vending_machine">Vending Machine Issue</option>
-                <option value="location">Location Issue</option>
-                <option value="app_functionality">App Functionality Issue</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="reportDescription">Description:</label>
-              <textarea id="reportDescription" className="form-control" required />
+            <div className="report-popup-layout">
+              <div className="report-left-column">
+                <div className="form-group">
+                  <label htmlFor="reportTitle">Title:</label>
+                  <input type="text" id="reportTitle" className="form-control" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="reportType">Type of Issue:</label>
+                  <select id="reportType" className="form-control" required>
+                    <option value="vending_machine">Vending Machine Issue</option>
+                    <option value="location">Location Issue</option>
+                    <option value="app_functionality">App Functionality Issue</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div className="form-group report-description-group">
+                <label htmlFor="reportDescription">Description:</label>
+                <textarea id="reportDescription" className="form-control" required />
+              </div>
             </div>
             <button type="submit" className="btn-submit">
               Submit

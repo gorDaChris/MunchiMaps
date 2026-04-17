@@ -123,6 +123,9 @@ body * {
 }
 
 #popup-report .popup-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
     margin-bottom: 8px;
 }
 
@@ -167,6 +170,25 @@ body * {
     gap: 12px;
 }
 
+#popup-report .report-popup-layout {
+    display: grid;
+    grid-template-columns: minmax(190px, 1fr) minmax(250px, 1.5fr);
+    gap: 12px 14px;
+    align-items: start;
+}
+
+#popup-report .report-left-column {
+    display: grid;
+    gap: 12px;
+}
+
+#popup-report .report-description-group {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
 #popup-report .report-popup-form .form-group {
     margin: 0;
 }
@@ -192,7 +214,8 @@ body * {
 }
 
 #popup-report #reportDescription {
-    min-height: 120px;
+    min-height: 152px;
+    height: 100%;
     resize: vertical;
 }
 
@@ -224,6 +247,16 @@ body * {
 
 #popup-report .report-popup-form .btn-submit:active {
     opacity: 0.95;
+}
+
+@media screen and (max-width: 700px) {
+    #popup-report .report-popup-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #popup-report #reportDescription {
+        min-height: 120px;
+    }
 }
 
 .leaflet-popup-content {
